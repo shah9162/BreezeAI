@@ -1,0 +1,38 @@
+{
+  "name": "breezeai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+
+  "test": "cucumber-js",
+  "smoke": "cucumber-js --tags \"@smoke\"",
+  "regression": "cucumber-js --tags \"@regression\"",
+  "search": "cucumber-js --tags \"@search\"",
+  "filter": "cucumber-js --tags \"@filter\"",
+  "navigation": "cucumber-js --tags \"@navigation\"",
+  "detail": "cucumber-js --tags \"@detail\"",
+  "deep-link": "cucumber-js --tags \"@deep-link\"",
+  "critical-flow": "cucumber-js --tags \"@smoke and (@search or @filter or @navigation)\"",
+  "retry": "cucumber-js --retry 1",
+  "allure:generate": "allure generate allure-results --clean",
+  "allure:open": "allure open",
+  "clean:allure": "if exist allure-results rmdir /s /q allure-results && if exist allure-report rmdir /s /q allure-report",
+  "report": "npm run clean:allure && npm run test && npm run allure:generate && npm run allure:open"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.8.2",
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.0",
+    "allure-commandline": "^2.38.1",
+    "allure-cucumberjs": "^3.7.1",
+    "allure-js-commons": "^3.7.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}
